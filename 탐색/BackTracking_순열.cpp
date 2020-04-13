@@ -38,7 +38,7 @@ void process(int index, int cnt) {
 	}
 
 	for (int i = 1; i <= n; i++) {
-		if (!visit[i]) { //해당 수를 방문했는지 체크
+		if (!visit[i]) { //해당 원소를 방문했는지 체크
 			visit[i] = true;
 			v.push_back(i);
 
