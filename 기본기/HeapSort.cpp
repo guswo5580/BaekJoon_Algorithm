@@ -32,11 +32,11 @@ int heap[9] = { 7,6,5,8,3,5,9,1,6 };
 
 int main() {
 
-	//배열 -> 힙 만들기 
+	//배열 -> 힙 구조 만들기 
 	for (int i = 1; i < number; i++) {
 		int c = i;
 		do {
-			int root = (c - 1) / 2; //이진 트리구조 형성
+			int root = (c - 1) / 2; //root = 자식의 부모 인덱스
 			
 			//부모와 자식을 비교하여 큰 값을 부모 위치로 올린다
 			if (heap[root] < heap[c]) {
@@ -44,8 +44,10 @@ int main() {
 				heap[root] = heap[c];
 				heap[c] = temp;
 			}
-			c = root; //바뀐다면 root를 바꿔준다
-		} while (c != 0);
+
+			c = root; //부모로 올라가며 비교를 진행
+
+		} while (c != 0); // c == 0일 때는 c와 최상단 노드까지 비교가 끝난 것을 의미
 	}
 	
 	//크기를 뒤에서부터 줄여가며 반복적으로 힙을 구성
@@ -58,6 +60,7 @@ int main() {
 
 		int root = 0;
 		int c = 1; 
+
 		do {
 			c = 2 * root + 1; //자식 노드를 확인
 			
